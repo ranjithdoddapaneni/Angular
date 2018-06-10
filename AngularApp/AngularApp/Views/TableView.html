@@ -15,7 +15,7 @@
         <tr ng-repeat="employee in employees | filter:searchText | orderBy: sortColumn:reverseSort">
             <td>{{employee.FirstName | CapsFirstChar}}</td>
             <td>{{employee.LastName | uppercase}}</td>
-            <td>{{employee.DateofBirth | date:"dd/MM/yyyy"}}</td>
+            <td>{{employee.BirthDate | date:"dd/MM/yyyy"}}</td>
             <td ng-hide="!ShowGender">{{employee.Gender | uppercase | Gender}}</td>
             <td>{{employee.Salary | currency:"$"}}</td>
             <td>{{employee.Designation | uppercase}}</td>

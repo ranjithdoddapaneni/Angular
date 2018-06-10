@@ -13,3 +13,8 @@ myHome.filter("CapsFirstChar", function () {
         return name.charAt(0).toUpperCase() + name.slice(1);
     }
 });
+myHome.filter("FormatDate", function () {
+    return function (name) {
+        return Date(name * 1000); 
+    }
+});

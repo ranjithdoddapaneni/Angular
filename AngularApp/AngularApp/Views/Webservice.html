@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="../Scripts/angular.js"></script>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="../AngularScripts/Data.js"></script>
+    
+    <script src="../AngularScripts/Home.js"></script>
+    <script src="../AngularScripts/Filter.js"></script>
+    
+</head>
+<body ng-app="MyHome" class="container">
+    <div ng-controller="myController">
+        <table class="table  table-striped table-hover table-bordered table-condensed table-responsive">
+            <tbody>
+                <tr class="active">                   
+                    <td>NAME</td>
+                    <td>DateofBirth</td>
+                    <td>Gender</td>
+                    <td>PersonID</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr ng-repeat="employee in employees">
+                    <td>{{employee.Name}}</td>
+                    <td>{{employee.BirthDate | FormatDate }}</td>
+                    <td>{{employee.Gender}}</td>
+                    <td>{{employee.PersonID}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
