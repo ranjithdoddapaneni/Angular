@@ -5,6 +5,7 @@ var myHome = angular.module("MyHome", [])
         $scope.sortColumn = "FirstName";
         $scope.reverseSort = false;
         $scope.ShowGender = true;
+        $scope.TableData = "TableView.html";
         $scope.SortColumn = function(sortCol) {
             $scope.reverseSort = ($scope.sortColumn == sortCol) ? !$scope.reverseSort : false;
             $scope.sortColumn = sortCol;

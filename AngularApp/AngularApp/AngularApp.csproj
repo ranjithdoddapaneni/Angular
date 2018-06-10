@@ -903,6 +903,8 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Views\Home.html" />
+    <Content Include="Views\ListView.html" />
+    <Content Include="Views\TableView.html" />
     <Content Include="Web.config" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
