@@ -1,39 +1,42 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-   
+
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="../Scripts/angular.js"></script>
     <link href="../Content/bootstrap.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="../AngularScripts/Data.js"></script>    
     <script src="../AngularScripts/Home.js"></script>
+    <script src="../AngularScripts/Filter.js"></script>
 </head>
 <body ng-app="MyHome" class="container">
     <div ng-controller="MyHomeController">
+        ShowGender: <input type="checkbox" value="ShowGender" checked="checked" ng-model="ShowGender" />
         Search: <input type="text" placeholder="Search" ng-model="searchText" />
-      <table class="table  table-striped table-hover table-bordered table-condensed table-responsive">
-          <tbody>
-              <tr class="active">
-                  <td >First Name</td>
-                  <td>Last Name</td>
-                  <td>Date of Birth</td>
-                  <td>Gender</td>
-                  <td>Salary</td>
-                  <td>Designation</td>
-              </tr>
-          </tbody>
-          <tbody>
-              <tr ng-repeat="employee in Employees | filter:searchText">
-                  <td>{{employee.FirstName | uppercase}}</td>
-                  <td>{{employee.LastName | uppercase}}</td>
-                  <td>{{employee.DateofBirth | date:"dd/MM/yyyy"}}</td>
-                  <td>{{employee.Gender | uppercase}}</td>
-                  <td>{{employee.Salary | currency:"$"}}</td>
-                  <td>{{employee.Designation | uppercase}}</td>
-              </tr>
-          </tbody>
-      </table>
+        <table class="table  table-striped table-hover table-bordered table-condensed table-responsive">
+            <tbody>
+                <tr class="active">
+                    <td ng-click="SortColumn('FirstName')">First Name <span ng-class="FetchClass('FirstName')"></span></td>
+                    <td ng-click="SortColumn('LastName')">Last Name <span ng-class="FetchClass('LastName')"></span></td>
+                    <td ng-click="SortColumn('DateofBirth')">Date of Birth <span ng-class="FetchClass('DateofBirth')"></span></td>
+                    <td ng-click="SortColumn('Gender')"  ng-hide="!ShowGender">Gender <span ng-class="FetchClass('Gender')"></span></td>
+                    <td ng-click="SortColumn('Salary')">Salary <span ng-class="FetchClass('Salary')"></span></td>
+                    <td ng-click="SortColumn('Designation')">Designation <span ng-class="FetchClass('Designation')"></span></td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr ng-repeat="employee in employees | filter:searchText | orderBy: sortColumn:reverseSort">
+                    <td>{{employee.FirstName | CapsFirstChar}}</td>
+                    <td>{{employee.LastName | uppercase}}</td>
+                    <td>{{employee.DateofBirth | date:"dd/MM/yyyy"}}</td>
+                    <td ng-hide="!ShowGender">{{employee.Gender | uppercase | Gender}}</td>
+                    <td>{{employee.Salary | currency:"$"}}</td>
+                    <td>{{employee.Designation | uppercase}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>

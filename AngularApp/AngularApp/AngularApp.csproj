@@ -93,6 +93,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AngularScripts\Data.js" />
+    <Content Include="AngularScripts\Filter.js" />
     <Content Include="AngularScripts\Home.js" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
